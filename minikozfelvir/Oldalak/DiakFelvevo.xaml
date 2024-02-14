@@ -1,0 +1,93 @@
+﻿<Window x:Class="minikozfelvir.DiakFelvevo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:minikozfelvir"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Height="350" Width="500">
+
+    <Border Background="{StaticResource Sotet}" BorderThickness="2" CornerRadius="25" Padding="6" MouseDown="DragNDrop">
+        <Grid x:Name="grid" Margin="10">
+
+            <!--#region __Definitions__-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.9*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <Label Content="OM azonosító:"/>
+            <TextBox x:Name="txtOMAzonosito"
+                     Grid.Row="0"
+                     MaxLength="11"
+                     PreviewTextInput="OmAzonosito_Input"
+                     LostFocus="OMAzonosito_Validate"
+                     Text="{Binding OM_Azonosito, UpdateSourceTrigger=PropertyChanged}" TabIndex="0"/>
+
+            <Label Content="Név:" Grid.Row="1"/>
+            <TextBox x:Name="txtNev"
+                     Grid.Row="1"
+                     PreviewTextInput="Nev_Input"
+                     LostFocus="Nev_Validate"
+                     Text="{Binding Neve, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="1"/>
+
+            <Label Content="Email:" Grid.Row="2"/>
+            <TextBox x:Name="txtEmail"
+                     Grid.Row="2"
+                     PreviewTextInput="Email_Input"
+                     LostFocus="Email_Validate"
+                     Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
+
+            <Label Content="Születési dátum:" Grid.Row="3"/>
+            <DatePickerTextBox x:Name="dpSzuletesiDatum"
+                               Grid.Row="3"
+                               PreviewTextInput="Datum_Input"
+                               LostFocus="Datum_Validate"
+                               Text="{Binding SzuletesiDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='yyyy\.MM\.dd\.'}" TabIndex="3"/>
+
+            <Label Content="Értesítési cím:" Grid.Row="4"/>
+            <TextBox x:Name="txtErtesitesiCim"
+                     Grid.Row="4"
+                     PreviewTextInput="ErtesitesiCim_Input"
+                     LostFocus="ErtesitesiCim_Validate"
+                     Text="{Binding ErtesitesiCime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="4"/>
+
+            <Label x:Name="lblMatekEredmeny" Content="Matek eredmény:" Grid.Row="5"/>
+            <TextBox x:Name="txtMatekEredmeny"
+                     Grid.Row="5"
+                     PreviewTextInput="Szam_Input"
+                     LostFocus="Szam_Validate"
+                     Text="{Binding Matematika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="5"/>
+
+            <Label x:Name="lblMagyarEredmeny" Content="Magyar eredmény:" Grid.Row="6"/>
+            <TextBox x:Name="txtMagyarEredmeny"
+                     Grid.Row="6"
+                     PreviewTextInput="Szam_Input"
+                     LostFocus="Szam_Validate"
+                     Text="{Binding Magyar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TabIndex="6"/>
+
+            <StackPanel x:Name="stackpanel" Grid.Column="2" Grid.RowSpan="4" Orientation="Vertical" VerticalAlignment="Center">
+                <local:HoverBtn Content="Kész" Click="Kesz_Click" Margin="10 40 10 0" Background="{StaticResource Oranzs}" Foreground="{StaticResource Sotet}"/>
+                <local:HoverBtn Content="Törlés" Click="Torles_Click" Margin="10 5 10 0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Grid.Row="5" Grid.RowSpan="2" Orientation="Horizontal">
+                <Label VerticalAlignment="Center" Content="Megírta"/>
+                <CheckBox VerticalAlignment="Center" TabIndex="7" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,205 @@
+:root {
+    --oranzse: #F6961D;
+    --szurke: #454545;
+    --sotet: #313131;
+    --nagyonSotet: #242424;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+
+    background-color: var(--nagyonSotet);
+}
+
+h1 {
+    color: var(--oranzse);
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    box-sizing: border-box;
+    color: var(--oranzse);
+}
+
+th {
+    background-color: #242424;
+}
+
+tr:hover td {
+    cursor: pointer;
+    background-color: var(--oranzse);
+    color: var(--szurke);
+    transition: 0.5s;
+}
+
+button {
+    color: var(--oranzse);
+    background-color: var(--sotet);
+
+    height: calc((5vh + 1vw) / 1.5);
+    width: calc((5vh + 7vw) / 1.5);
+    min-height: 35px;
+    min-width: 100px;
+
+    border-radius: 8px;
+    border: 2px solid var(--sotet);
+    font-size: max(calc((1vh + 2vw) / 3), 16px);
+
+    transition: 1s;
+}
+
+button:hover {
+    cursor: pointer;
+
+    background-color: var(--oranzse);
+    color: var(--sotet);
+    border: 2px solid var(--nagyonSotet);
+}
+
+input {
+    height: 3vh;
+    width: 10vw;
+    min-height: 25px;
+    min-width: 100px;
+
+    border: calc((1vh + 2vw) / 7) solid var(--oranzse);
+    border-radius: 8px;
+
+    color: var(--oranzse);
+    background-color: var(--sotet);
+
+    user-select: all;
+    font-size: max(calc((1vh + 2vw) / 2.5), 16px);
+    text-indent: max(0.2vw, 4px);
+}
+
+input::selection {
+    background-color: #F6961D;
+    color: var(--szurke);
+}
+
+input:focus {
+    background-color: var(--szurke);
+    outline: none;
+}
+
+input[type='file'] {
+    display: none;
+    user-select: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+tr:nth-child(even) {
+    background-color: var(--szurke);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--sotet);
+}
+
+/* #region Ids*/
+#kiirasokDiv{
+    display: flex;
+}
+
+#kiirasokDiv p{
+    width: fit-content;
+    margin: 0px 10px;
+}
+
+#kartyak{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#omKeresesDiv {
+    width: fit-content;
+    margin: 4mm auto;
+}
+
+#tablediv {
+    max-width: min-content;
+    overflow-y: auto;
+}
+
+#table {
+    margin-top: 7vh;
+    width: 70%;
+}
+
+#pontszam{
+    display: flex;
+    width: fit-content;
+}
+
+/* #endregion */
+
+/* #region Classes*/
+.kartya{
+    width: fit-content;
+    background-color: var(--szurke);
+    border: black 2px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row * {
+    margin: 2vw;
+}
+
+.customFileInput {
+    display: inline-block;
+
+    height: max(calc((5vh + 1vw) / 1.5 - 1vh), 30px);
+    width: max(calc((5vh + 7vw) / 1.5), 100px);
+
+    text-align: center;
+    background-color: var(--sotet);
+    color: var(--oranzse);
+
+    padding: max(1.2vh, 10px) max(1vh, 10px) 0 max(1vh, 10px);
+    margin: 0;
+    border-radius: 6px;
+
+    font-size: max(calc((1vh + 2vw) / 3), 15px);
+    transition: 1s;
+}
+
+.customFileInput:hover {
+    cursor: pointer;
+
+    background-color: var(--oranzse);
+    color: var(--sotet);
+}
+
+.hover:hover {
+    cursor: pointer;
+}
+/* #endregion */

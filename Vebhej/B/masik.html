@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="masik.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>MiniKözFelvir</title>
+</head>
+<body onload="BetoltCim()">
+    <div class="row">
+        <h1>Pontszám minimum: </h1>
+        <input type="number" id="pontszamMinimum" onchange="BetoltAdatok()">
+        <div>
+            <label for="inpFile" class="customFileInput">Fájl kiválasztása</label>
+            <input type="file" id="inpFile" accept=".json" onchange="ReadFile(this)">
+        </div>
+    </div>
+
+    <table id="table"></table>
+</body>
+</html>

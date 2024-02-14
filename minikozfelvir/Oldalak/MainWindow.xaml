@@ -1,0 +1,49 @@
+﻿<Window x:Class="minikozfelvir.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:minikozfelvir"
+        mc:Ignorable="d"
+        Title="Minikozfelvir" Background="{StaticResource Sotetebb}" Height="530" Width="900"
+        BorderBrush="{StaticResource Oranzs}" BorderThickness="1" SizeChanged="MeretValtozas" ResizeMode="CanResizeWithGrip">
+
+    <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform" StretchDirection="Both">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid HeadersVisibility="Column" CanUserResizeColumns="False" CanUserResizeRows="False" x:Name="dgMain" AutoGenerateColumns="False" Background="#272727" CanUserAddRows="False" IsReadOnly="True" BorderBrush="{StaticResource Oranzs}" MinHeight="350"  MaxHeight="400">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="OM Azonosító" Binding="{Binding OM_Azonosito}"/>
+
+                    <DataGridTextColumn Header="Név" Binding="{Binding Neve}" />
+
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+
+                    <DataGridTextColumn Header="Születési Dátum" Binding="{Binding SzuletesiDatum, StringFormat=\{0:yyyy\.MM\.dd\.\}}" />
+
+                    <DataGridTextColumn Header="Értesítési Cím" Binding="{Binding ErtesitesiCime}" />
+
+                    <DataGridTextColumn Header="Matematika" Binding="{Binding Matematika}" />
+
+                    <DataGridTextColumn Header="Magyar" Binding="{Binding Magyar}" />
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+            <StackPanel Grid.Column="1">
+                <local:HoverBtn Content="Új diák" Click="UjDiak_Click"/>
+                <local:HoverBtn Content="Szerkeszt" Click="Szerkeszt_Click"/>
+                <local:HoverBtn Content="Töröl" Click="Torol_Click"/>
+                <local:HoverBtn Content="Export" Click="Export_Click"/>
+                <local:HoverBtn Content="Import" Click="Import_Click"/>
+                <local:HoverBtn Content="Sql" Click="Sql_Click"/>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</Window>
